@@ -25,6 +25,9 @@
                 <h2><i class="fas fa-paw"></i> Paw4Paw</h2>     
             </div>
 
+            <!-- SEARCH BAR FOR FUTURE -->
+            <!-- <input id="search" type="text" placeholder="Search"> -->
+
             <ul class="navbar">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">Dogs</a></li>
@@ -36,11 +39,11 @@
 
         <div class="title">
             <h1>PAWFECT MATCH</h1>
+            <p></p>
             <hr class="hr">
+            <h2>FOR YOUR DOGGO</h2>
         </div>
 
-
-        <h2 class="sub-heading">FOR YOUR DOGGO</h2>
 
         <div class="button">
             <a href="./Authentication/loginandregistration.php" class="btn">Login</a>
