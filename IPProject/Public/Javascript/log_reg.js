@@ -1,3 +1,5 @@
+                            // LOGIN PAGE TRASITION LEFT-> RIGHT JERIL wala
+
 var x= document.getElementById("login");
 var y= document.getElementById("register");
 var z= document.getElementById("btn");

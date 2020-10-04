@@ -1,3 +1,4 @@
+                                    <!-- CONTAINS PHP / DATABASE CONNECTIVITy -->
 <?php
 ob_start(); // Turns on Output buffering
 $timezone = date_default_timezone_set("Asia/Kolkata");

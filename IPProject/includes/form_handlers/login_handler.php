@@ -1,3 +1,4 @@
+                                <!-- CONATAINS LOGIN AUTHENTICATION PHP-->
 <?php
 
 if(isset($_POST['log_submit'])){

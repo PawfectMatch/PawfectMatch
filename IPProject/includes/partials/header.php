@@ -1,3 +1,14 @@
+<!-- 
+                                        HEADER FILE INCLUDING
+                                        =====================
+                                        1 . all PHP includes
+                                        2. BASIC HTML 
+                                        3. ALL STYLESHEETS OF NAVBAR AND OTHER PAGES IN FUTURE
+                                        4. ALL GOOGLE FONTS / SCRIPT TAGS CONTAINING JS
+                                        5. ALL ICON / API CDNs 
+                                        ==================== 
+-->
+
 <?php
     require "../../config/config.php";
 
