@@ -17,20 +17,21 @@
     }
 
 ?>
-
+<!--  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAW4PAW</title>
-    <link rel="stylesheet" href="../../Public/Stylesheets/main.css">
-
     <!--External css-->
-    <!-- LANDING PAGE -->
-    <link rel="stylesheet" href="../../Public/Stylesheets/LandingPage.css">
 
- 
+    <!-- LANDING PAGE -->
+        <link rel="stylesheet" href="../../Public/Stylesheets/LandingPage.css">
+    <!-- INDEX PAGE -->
+        <link rel="stylesheet" href="../../Public/Stylesheets/main.css">
+
+
 
     <!--fonts.google-->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">

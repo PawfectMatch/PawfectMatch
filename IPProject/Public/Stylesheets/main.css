@@ -1,5 +1,133 @@
 /* INDEX PAGE STYLESHEET */
 
-body{
-    background-color: aqua;
+/* FULL GRID */
+.grid{
+    padding-top: 100px;
+    width: 100%;
+
 }
+
+/* NEWS PANEL WIDTH */
+body > section.lower_body > table > tbody > tr > th:nth-child(1){
+    width: 20%;
+}
+
+/* ADMIN PANEL WIDTH */
+body > section.lower_body > table > tbody > tr > th:nth-child(3){
+    width: 20%;
+}
+
+/* POST GRID */
+body > section.lower_body > table > tbody > tr:nth-child(2) > td:nth-child(2){
+    background-color: cyan;
+    justify-content: center;
+    text-align: center;
+}
+
+/* IMAGES IN POST GRID */
+/* .GridPics  img{
+    width: 250px;
+    height: 250px;
+    margin: 20px 20px;
+} */
+
+/* ============== CARD ================ */
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 250px;
+    /* margin: auto; */
+    text-align: center;
+    float: right;
+    margin: 20px 20px;
+    /* height: 500px; */
+}
+
+.card img{
+    width: 250px;
+    height: 250px;
+
+} 
+  
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+
+
+/* ADMIN PANEL */
+body > section.lower_body > table > tbody > tr:nth-child(2) > td.AdminPanel{
+    background-color: darkorange;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    float: left;
+}
+
+.AdminPanelBox{
+    width: 85%;
+    /* height: 500px; */
+    background-color: gold;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;    
+}
+
+/* ADMIN IMAGE IN USER PANEL */
+.AdminPanel img{
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 5px;
+    width: 150px;
+    height: 150px;  
+}
+
+
+/* TO HIDE ADMIN PANEL AND NEWS IN MOBILE DISPLAY */
+@media screen and (max-width: 1030px) {
+
+    body {
+      background-color: black;
+    }
+
+    body > section.lower_body > table > tbody > tr:nth-child(2) > td.AdminPanel{
+        display: none;
+    }
+
+    body > section.lower_body > table > tbody > tr:nth-child(2) > td:nth-child(1) > div{
+        display: none;        
+    }
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        text-align: center;
+        float: none;
+        /* align-items: center; */
+        /* margin: 20px 50px; */
+        margin: 25px auto;
+        width: 400px;
+      }
+    
+    .card img{
+        width: 400px;
+        height: 400px;
+    
+    } 
+
+  }
