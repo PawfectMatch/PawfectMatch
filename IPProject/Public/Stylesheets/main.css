@@ -94,6 +94,8 @@ body > section.lower_body > table > tbody > tr:nth-child(2) > td.AdminPanel{
     padding: 0;
     align-items: center;
     float: left;
+    min-width: 250px;
+    /* min-height: 380px; */
 }
 
 .AdminPanelBox{
@@ -103,7 +105,8 @@ body > section.lower_body > table > tbody > tr:nth-child(2) > td.AdminPanel{
     margin: 0 auto;
     align-items: center;
     justify-content: center;
-    text-align: center;    
+    text-align: center;  
+    /* min-height: 400px; */
 }
 
 

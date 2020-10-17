@@ -106,7 +106,9 @@
 			}
 
 			// INSERTING USER INFO IN DATABASE
-			$ins_query = mysqli_query($con , "INSERT INTO users VALUES ('$reg_username', '$reg_email', '$reg_mnumber', '$reg_pass1', '$reg_check', '', '$reg_date', '$profile_pic', '0', '0', 'no', ',')");
+			$ins_query = mysqli_query($con , "INSERT INTO users VALUES ('$reg_username', 
+			'$reg_email', '$reg_mnumber', '$reg_pass1', '$reg_check', '', '$reg_date',
+			 '$profile_pic', '0', '0', 'no', ',')");
 			array_push($error_array,$reg_username ." You are registered successfully! you are good to log in ...");
 			
 			//Clear session variables 

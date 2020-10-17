@@ -1,19 +1,22 @@
 <!-- 
-                                        HEADER FILE INCLUDING
-                                        =====================
-                                        1 . all PHP includes
-                                        2. BASIC HTML 
-                                        3. ALL STYLESHEETS OF NAVBAR AND OTHER PAGES IN FUTURE
-                                        4. ALL GOOGLE FONTS / SCRIPT TAGS CONTAINING JS
-                                        5. ALL ICON / API CDNs 
-                                        ==================== 
+                                    HEADER FILE INCLUDING
+                                    =====================
+                                    1 . all PHP includes
+                                    2. BASIC HTML 
+                                    3. ALL STYLESHEETS OF NAVBAR AND OTHER PAGES IN FUTURE
+                                    4. ALL GOOGLE FONTS / SCRIPT TAGS CONTAINING JS
+                                    5. ALL ICON / API CDNs 
+                                    ==================== 
 -->
 
 <?php
     require "../../config/config.php";
 
     if(isset($_SESSION['username'])){
-        $loggedin_user = $_SESSION['username'] ;
+        $loggedin_user = $_SESSION['username'];
+    } 
+    else{
+        $loggedin_user = "_nouser_";
     }
 
 ?>
@@ -29,7 +32,7 @@
     <!-- LANDING PAGE -->
         <link rel="stylesheet" href="../../Public/Stylesheets/LandingPage.css">
     <!-- INDEX PAGE -->
-        <link rel="stylesheet" href="../../Public/Stylesheets/main.css">
+        <!-- <link rel="stylesheet" href="../../Public/Stylesheets/main.css"> -->
 
 
 

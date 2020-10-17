@@ -12,6 +12,7 @@ if(isset($_POST['log_submit'])){
     // To Get User Ifo and to check email and password
     $login_db_query = mysqli_query($con,"SELECT * FROM users WHERE email = '$log_email' AND password = '$log_password' ");
     $login_check_query = mysqli_num_rows($login_db_query);
+    
     $login_messege_array = array();
 
     if($login_check_query == 1){

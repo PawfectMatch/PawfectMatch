@@ -1,7 +1,9 @@
 <!-- HEADER -->
 <?php
     include("../../includes/partials/header.php");
+    include("../../includes/classes/User.php");
 ?>
+<link rel="stylesheet" href="../../Public/Stylesheets/main.css">
 
 <section class="lower_body">
     <table class="grid">
@@ -79,28 +81,66 @@
                         <p><button>Read more</button></p>
                     </div>
 
-                    <!-- <img src="../../Public/Images/German-Shepherd.jpg" alt="">
-                    <img src="../../Public/Images/husky.jpg" alt="">
-                    <img src="../../Public/Images/persian-kitten.jpg" alt="">
-                    <img src="../../Public/Images/rottweiler-puppies.jpg" alt="">
-                    <img src="../../Public/Images/Saint-bernard.jpg" alt="">
-                    <img src="../../Public/Images/siberian-husky.jpg" alt="">
-                    <img src="../../Public/Images/Yellow-Labrador-Retriever.jpg" alt=""> -->
-
                 </td>
 	<!-- ADMIN PANEL -->
                 <td class="AdminPanel">
                     <div class="AdminPanelBox">
-                        <h1>WELCOME!</h1>
-                        <img src="../../Public/Images/login2.jpg" alt="">
-                        <!-- ADMIN PANEL INFO -->
-                        <div class="AdminPanelInfo">
-                            <h2>OWNER: SWAROOP GOGATE</h2>
-                            <h4>LIKES: 6</h4>
-                            <h4>POSTS: 3</h4>
-                            <h4>Friends: 8</h4>
-                        </div>
-                    </div>
+                        <!-- If User Is Logged In -->
+                        <?php 
+                            if( $loggedin_user != "_nouser_"){
+                        ?>        
+                                <h1>WELCOME!</h1>
+                                <a href="./userpage.php">
+                        <!-- Fetch Profile Pic -->
+                                    <img src="                        
+                                    <?php
+                                        $user_obj = new User($con , $loggedin_user);
+                                        echo $user_obj->getProfilePic();
+                                    ?>
+                                    " alt="">
+                                </a>
+                                
+                                <!-- ADMIN PANEL INFO -->
+                                <div class="AdminPanelInfo">
+                                    <h2> <?php 
+                                            $user_obj = new User($con , $loggedin_user);
+                                            echo $user_obj->getUsername();                                    
+                                        ?> 
+                                    </h2>
+                                    <h4>LIKES: 
+                        <!-- Fetch Other Details -->
+                                        <?php
+                                            $user_obj = new User($con , $loggedin_user);
+                                            echo $user_obj->getNumLikes();
+                                        ?>
+                                        </h4>
+                                    <h4>POSTS: 
+                                        <?php
+                                            $user_obj = new User($con , $loggedin_user);
+                                            echo $user_obj->getNumPosts();
+                                        ?>
+                                    </h4>
+                                    <h4>Friends: 8</h4>
+
+                                </div>
+                        <?php
+                            }
+                            // IF USER IS NOT LOGGED IN 
+                            else{
+                        ?>
+                            <h1>WELCOME!</h1>
+                            <img src="../../Public/Images/login2.jpg" href="../Authentication/loginandregistration.php" alt="">
+                            <div class="AdminPanelInfo">
+                                <h2>Please <a href="../Authentication/loginandregistration.php">Log In</a></h2>
+                                <h4>Dont Have a acount?</h4><p></p>
+                                <h4><a href="../Authentication/loginandregistration.php">Register for free</a></h4>
+                            </div>
+
+                        <?php
+                            }
+                        ?>
+
+
 
                 </td>
 			</tr>
@@ -108,13 +148,6 @@
 
     </table>
 </section>
-
-
-
-
-
-
-
 
 
 
