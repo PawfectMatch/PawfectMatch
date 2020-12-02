@@ -15,6 +15,7 @@ class User{
 	public function getUsername() {
 		return $this->user['username'];
 	}
+	
 
 
 
@@ -38,6 +39,13 @@ class User{
 		$query = mysqli_query($this->con, "SELECT num_posts FROM users WHERE username='$username'");
 		$row = mysqli_fetch_array($query);
 		return $row['num_posts'];
+	}
+
+	public function getuserID(){
+		$username = $this->user['username'];
+		$query = mysqli_query($this->con, "SELECT user_id FROM users WHERE username='$username'");
+		$row = mysqli_fetch_array($query);
+		return $row['user_id'];
 	}
 
 	public function getNumLikes() {

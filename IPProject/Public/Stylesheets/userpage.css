@@ -71,10 +71,53 @@ body{
     color: #333;
 }
 .makeapost{
-    background-color:blue ;
-    color: #fff;
+    background-color:orange ;
+    color: black;
     text-align: center;
     justify-content: center;
     height: 50px;
-    margin-left: 50%;
+    margin-left: 45%;
+}
+
+.givemesomespace{
+    height: 1000px;
+    width: 80%;
+    /* background-color: white; */
+    
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    background-color: whitesmoke;
+    /* margin: auto; */
+    text-align: center;
+    float: left;
+    margin: 20px 20px;
+    /* height: 500px; */
+}
+
+.card img{
+    width: 250px;
+    height: 250px;
+
+} 
+  
+.cardButton{
+    
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #393e46;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    
+}
+
+a{
+    text-decoration: none;
 }

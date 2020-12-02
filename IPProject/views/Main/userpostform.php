@@ -1,3 +1,4 @@
+
 <!-- HEADER -->
 <?php
     include("../../includes/partials/header.php");
@@ -13,7 +14,7 @@
         $post = new Post($con , $loggedin_user );
         $post -> submitPost($_POST['userpost_nameofpet'],$_POST['userpost_breedofpet'],
             $_POST['userpost_age'],$_POST['userpost_gender'],$_POST['userpost_cost'],$_POST['userpost_url']
-            ,$_POST['userpost_location']);
+            ,$_POST['userpost_location'],$_POST['userpost_descr']);
     }  
     // TESTING  
     // echo $loggedin_user;
@@ -25,6 +26,7 @@
     // echo $_POST['userpost_cost'] ; 
     // echo $_POST['userpost_url'] ; 
     // echo $_POST['userpost_location'] ; 
+    // echo ("$owner_id");
 ?>
 
 <link rel="stylesheet" href="../../Public/Stylesheets/userpostform.css">
@@ -39,6 +41,7 @@
     <input name="userpost_cost"     type="text" placeholder="cost" >                       <p></p>
     <input name="userpost_url"      type="text" placeholder="Add url of the photo">         <p></p>
     <input name="userpost_location" type="text" placeholder="Enter location">          <p></p>
+    <input name="userpost_descr"    type="text" placeholder="About Your Pet">          <p></p>
     <button name="post"             type="submit" value="Post" >POST</button>
 
 </form>
@@ -46,6 +49,9 @@
 
 <!-- FOOTER -->
 <?php
+
+    if(isset($_POST['post']))
+    header('Location: ./userpage.php');
     }
     include("../../includes/partials/footer.php");
 ?>

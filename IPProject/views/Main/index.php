@@ -2,6 +2,8 @@
 <?php
     include("../../includes/partials/header.php");
     include("../../includes/classes/User.php");
+    $AllPosts = $con->query("SELECT * from posts");
+
 ?>
 <link rel="stylesheet" href="../../Public/Stylesheets/main.css">
 
@@ -26,16 +28,35 @@
     
                 <td class="GridPics">
                     
+                    <?php
+                        while($data = mysqli_fetch_array($AllPosts)){ 
+                    ?>
+
                     <div class="card">
-                        <img src="../../Public/Images/Whiskeyyyy.jpg" alt="Whiskey" style="width:100%">
-                        <h1>Whiskey Raut</h1>
-                        <p class="CardName">A cute white active Pomeranian</p>
-                        <p>4 years</p>
+                        <img src="<?php
+                            echo $data['picofpet']
+                        ?>" alt="Whiskey" style="width:100%">
+                        <h1><?php
+                            echo $data['nameofpet']
+                        ?></h1>
+                        <p class="CardName"><?php
+                            echo $data['descr']
+                        ?></p>
+                        <p>Age : <?php
+                            echo $data['ageofpet']
+                        ?></p>
 
                         <p><button>Read more</button></p>
                     </div>
 
-                    <div class="card">
+
+                    <?php
+                        }
+                    ?>
+
+
+
+                    <!-- <div class="card">
                         <img src="../../Public/Images/Asterixx.jpg" alt="Asterix" style="width:100%">
                         <h1>Asterix Dcosta</h1>
                         <p class="CardName">Young, playful and happy Cocker Spaniel</p>
@@ -43,6 +64,7 @@
 
                         <p><button>Read more</button></p>
                     </div>
+
 
                     <div class="card">
                         <img src="../../Public/Images/BruceKherdekar.jpg" alt="Bruce" style="width:100%">
@@ -79,7 +101,7 @@
                         <p>5 years</p>
 
                         <p><button>Read more</button></p>
-                    </div>
+                    </div> -->
 
                 </td>
 	<!-- ADMIN PANEL -->

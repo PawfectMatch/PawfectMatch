@@ -16,10 +16,11 @@ class Post{
 
     // FUNCTION TO SUBMIT POST
     public function submitPost($userpost_nameofpet,$userpost_breedofpet,$userpost_age
-                                ,$userpost_gender,$userpost_cost,$userpost_url,$userpost_location){
+                                ,$userpost_gender,$userpost_cost,$userpost_url,$userpost_location,$userpost_descr){
 
         // Get USername from User class object 
-        $username1 = $this->user_obj->getUsername();                            
+        $username1 = $this->user_obj->getUsername();  
+        $owner_id = $this->user_obj->getuserID();                          
         // defining error array
         $error_array = array();
         // $error_array = null;                            
@@ -56,9 +57,11 @@ class Post{
         //     print_r($error_array);
         // }
 
+            
+
         $post_query = mysqli_query($this->con , "INSERT INTO posts VALUES (
             '' ,'$userpost_nameofpet','$userpost_breedofpet','$userpost_age','$userpost_location',
-          '$userpost_gender','$userpost_cost','$username1','no','no',0,'$userpost_url', '$date_of_post') ");
+          '$userpost_gender','$userpost_cost','$username1','$userpost_url', '$date_of_post' , '$owner_id','$userpost_descr') ");
 
 
 

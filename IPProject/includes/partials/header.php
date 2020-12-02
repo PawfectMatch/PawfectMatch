@@ -61,5 +61,6 @@
             <li><a href="#">Dogs</a></li>
             <li><a href="#">About us</a></li>
             <li><a href="#">Contact us</a></li>
+            <li><a href="./logout.php">Log Out</a></li>
         </ul>
     </div>
