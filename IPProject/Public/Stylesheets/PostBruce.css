@@ -2,7 +2,8 @@ body{
     /* background-color: yellow; */
 }
 .somespace{
-  height: 125px;
+  height: 75px;
+  background-color: grey;
 }
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -10,6 +11,7 @@ body{
     margin: auto;
     /* padding-top: 80px; */
     text-align: center;
+    background-color: aquamarine;
   }
   
   .title {
