@@ -70,7 +70,7 @@
         <p class="CardName">Young, playful and happy Cocker Spaniel</p>
         <p>Age : <?php echo $data['ageofpet'] ?></p>
 
-        <p><button class="cardButton">Read more</button></p>
+        <p><button class="cardButton" onclick="location.href='index.php'">Read more</button></p>
     </div>
 
 

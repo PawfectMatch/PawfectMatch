@@ -21,7 +21,7 @@
     <!-- NEWS PANEl -->
                 <td>
                     <div>
-                        <h1 style="color: #1d1e1f;">NEWS AND OTHER THINGS</h1>
+                        <h1 style="color: #1d1e1f;"></h1>
                     </div>
                 </td>
 	<!-- GRID PANEL -->
@@ -46,7 +46,7 @@
                             echo $data['ageofpet']
                         ?></p>
 
-                        <p><button>Read more</button></p>
+                        <p><button><a class="ReadMore" href="../Posts/Bruce.php">Read More</a></button></p>
                     </div>
 
 

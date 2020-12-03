@@ -86,6 +86,7 @@ body > section.lower_body > table > tbody > tr:nth-child(2) > td:nth-child(2){
   }
 
 
+
 /* ADMIN PANEL */
 body > section.lower_body > table > tbody > tr:nth-child(2) > td.AdminPanel{
     background-color: #393e46;
@@ -153,3 +154,11 @@ body > section.lower_body > table > tbody > tr:nth-child(2) > td.AdminPanel{
     } 
 
   }
+
+  .ReadMore{
+    color: rgb(202, 202, 118);
+}
+ 
+a{
+    text-decoration: none;
+}
