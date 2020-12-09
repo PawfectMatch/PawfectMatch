@@ -1,38 +1,27 @@
 								<!-- INPUT VALIDATION AND BACKEND OF REGISTRATION -->
 
 <?php
-
 	// DEFINING VARIBALES
 	$reg_username = ''; $reg_email = ''; $reg_mnumber = ''; $reg_pass1 = '';$reg_pass2 = '';$reg_date = ''; $reg_check = '';
 	$error_array = array();
-	
 	// REGISTER
 	if(isset($_POST['reg_submit'])){
-
 		$reg_username = strip_tags($_POST['reg_username']); 
         $reg_username = str_replace(' ','',$reg_username);
 		$reg_username = ucfirst(strtolower($reg_username));
 		$_SESSION['reg_username'] = $reg_username; // Storing varibale to a session
-
 		$reg_email = strip_tags($_POST['reg_email']); 
 		$reg_email = str_replace(' ','',$reg_email);
 		$_SESSION['reg_email'] = $reg_email; // Storing varibale to a session
-		
 		$reg_mnumber = strip_tags($_POST['reg_mnumber']); 
 		$reg_mnumber = str_replace(' ','',$reg_mnumber);
 		$_SESSION['reg_mnumber'] = $reg_mnumber; // Storing varibale to a session
-		
 		$reg_pass1 = strip_tags($_POST['reg_pass1']); 
 		// $_SESSION['reg_pass1'] = $reg_pass1; // Storing varibale to a session
-
         $reg_pass2 = strip_tags($_POST['reg_pass2']); 
 		// $_SESSION['reg_pass2'] = $reg_pass2; // Storing varibale to a session
-
 		$reg_date = date('Y-m-d');
-		
-
 		// ADDING constraints
-
 		//USERNAME length		
 		if(strlen($reg_username) > 15 || strlen($reg_username) < 3 ){
 			array_push($error_array,"Username must be between 3-13 characcters");
@@ -41,7 +30,6 @@
 		if(!ctype_alpha($reg_username)){
 			array_push($error_array,"Please Enter Alphabets only in Username");
 		}
-
 		// password checks
 		if($reg_pass1 != $reg_pass2){
 			array_push($error_array,"Passwords do not match");
@@ -50,11 +38,9 @@
 				array_push($error_array,"You can only use characters and numbers");
 			}
 		}
-
 		if(strlen($reg_pass1) > 16 || strlen($reg_pass1) < 7){
 			array_push($error_array,"Password length must be between 7-16");
 		}
-
 		// Mnumber length
 		if(strlen($reg_mnumber) <6 || strlen($reg_mnumber) >14 ){
 			array_push($error_array,"Enter Valid Mobile Number");
