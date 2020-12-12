@@ -2,26 +2,94 @@
 <?php
     include("../../includes/partials/header.php");
     include("../../includes/classes/User.php");
-    
-    // Import PHPMailer classes into the global namespace
-    // These must be at the top of your script, not inside a function
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
-    use PHPMailer\PHPMailer\Exception;
-
-    // Load Composer's autoloader
-    require '../../vendor/autoload.php';
-
-    // Instantiation and passing `true` enables exceptions
-    $mail = new PHPMailer(true);
-
 
     $SinglePosts = $con->query("SELECT * from posts where post_id = '12'");
     $data = mysqli_fetch_array($SinglePosts);
     $owner_id = $data['owner_id'];
     $userdata =    $con->query("SELECT * from users where user_id = '$owner_id'");
     $data2 = mysqli_fetch_array($userdata);
-    
+
+
+
+
+    // 
+        include_once "../../PHPMailer.php";
+
+        require_once "../../PHPMailer.php";
+        require_once "../../SMTP.php";
+        require_once "../../Exception.php";
+        include_once "../../smtp.php";
+
+        use PHPMailer\PHPMailer\PHPMailer;
+        $Cemail=$data2['email'];
+        $mail = new PHPMailer();
+        //SMTP Settings
+
+
+
+        $mail->isSMTP();
+        $mail->Host = "smtp.gmail.com";
+        $mail->SMTPAuth = true;
+        $mail->Username = "sgogate.boss@gmail.com";
+        $mail->Password = '99677232310';
+        $mail->Port = 465; //587
+        $mail->SMTPSecure = "ssl"; //tls
+
+        if(isset($_POST['contact'])) {
+          $mail->isHTML(true);
+          $mail->setFrom($data2['email']);
+          $mail->addAddress($data2['email']);
+            // echo "USERNAME " . $loggedin_user;
+            // echo "OWNER " . $data2['username'];
+          $mail->Subject =  "PAWFECT MATCH " . "    ||   " .  $loggedin_user . " wants to conatact you" . "    ||   ";
+          
+          $mail->Body = "
+              HELLO ". $data2['username'] . " 
+              
+              
+              " . $loggedin_user . "is intrested in " . $data['nameofpet'] ;
+        
+          if ($mail->send())
+          {
+              echo '<script id="tyru" language="javascript">';
+              echo 'alert("User is notified !")';
+              echo '</script>';
+          }
+          else
+          {
+              echo '<script id="tyru" language="javascript">';
+              echo 'alert("Sending email failed!")';
+              echo '</script>';
+          }
+      } 
+
+    // 
+
+  // 
+  // $mail->isHTML(true);
+  // $mail->setFrom("sgogate600@gmail.com");
+  // $mail->addAddress("sgogate600@gmail.com");
+  // $mail->Subject =  "USER WANTS TO CONTACT U";
+  
+  // $mail->Body = "
+  //     HELLO THIS IS PAWFECT MATCH";
+
+  // if ($mail->send())
+  // {
+  //     echo '<script id="tyru" language="javascript">';
+  //     echo 'alert("Doctor is notified about Unverification of his/her account by Email!")';
+  //     echo '</script>';
+  // }
+  // else
+  // {
+  //     echo '<script id="tyru" language="javascript">';
+  //     echo 'alert("Sending email failed!")';
+  //     echo '</script>';
+  // }
+
+
+  // 
+
 ?>
 
 <link rel="stylesheet" href="../../Public/Stylesheets/PostBruce.css">
@@ -33,8 +101,11 @@
   <h1>Age : <?php echo $data['ageofpet'] ?></h1>
   <h3>Description : <?php echo $data['descr'] ?></h3>  
   <div>
-    <form method="POST">
-      <input type="submit" name="button1" class="button" value="Contact User" />
+    <form name="contact" action="Bruce.php" method="post">
+
+      <!-- <button value="contact">Contact Owner</button> -->
+      <!-- <input type="submit" name="contact" value="Contact Owner" onclick="contact()" /> -->
+      <button type="submit" name="contact" value="contact">Contact User</button>
     </form>
   </div>
   <h2>User : <?php echo $data2['username'] ?></h2>
@@ -45,49 +116,10 @@
 
 <!-- FOOTER -->
 <?php
+
+
+
+
+
     include("../../includes/partials/footer.php");
-?>
-
-<?php
-  if(array_key_exists('button1', $_POST)) { 
-      button1(); 
-  } 
-
-  function button1() { 
-        try {
-          //Server settings
-          $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
-          $mail->isSMTP();                                            // Send using SMTP
-          $mail->Host       = 'sgogate600@gmail.com';                    // Set the SMTP server to send through
-          $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-          $mail->Username   = 'sgogate600@gmail.com';                     // SMTP username
-          $mail->Password   = 'Athena@104';                               // SMTP password
-          $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-          $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-      
-          //Recipients
-          $mail->setFrom('sgogate600@gmail.com', 'Mailer');
-          $mail->addAddress('sgogate.boss@gmail.com', 'Joe User');     // Add a recipient
-          $mail->addAddress('sgogate@ieee.org');               // Name is optional
-          // $mail->addReplyTo('info@example.com', 'Information');
-          // $mail->addCC('cc@example.com');
-          // $mail->addBCC('bcc@example.com');
-      
-          // Attachments
-          // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-          // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-      
-          // Content
-          $mail->isHTML(true);                                  // Set email format to HTML
-          $mail->Subject = 'PAWFECT MATCH';
-          $mail->Body    = 'SWAROOP WANTS TO CONTACT YOU reg BRUCE';
-          // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-      
-          $mail->send();
-          echo 'Message has been sent';
-      } catch (Exception $e) {
-          echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-      } 
-  } 
-
 ?>
