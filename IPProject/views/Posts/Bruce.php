@@ -37,8 +37,8 @@
     // IF BUTTON IS CLICKED
       if(isset($_POST['contact'])) {
         $mail->isHTML(true);
-        $mail->setFrom($user_obj->getEmail());
-        $mail->addAddress($user_obj->getEmail());
+        $mail->setFrom($Cemail);
+        $mail->addAddress($Cemail);
           // echo "USERNAME " . $loggedin_user;
           // echo "OWNER " . $data2['username'];
         $mail->Subject =  "PAWFECT MATCH " . "    ||   " .  $user_obj->getUsername() . " wants to contact you" . "    ||   ";
@@ -46,7 +46,7 @@
         $mail_body =  "Hello " .$data2['username']." , 
         " . $user_obj->getUsername() ." has viewed your profile on Paw4Paw and has shown interest in " . 
         $data['nameofpet'] . ". <p> Revert back if you're interested and would want to contact 
-        " . $user_obj->getUsername() . "<p> Email : " . $data2['email'];
+        " . $user_obj->getUsername() . "<p> Email : " . $Cemail;
         $mail_body = "<p style='text-align:justify'>$mail_body</p>";
         $mail->Body =  $mail_body;
 
