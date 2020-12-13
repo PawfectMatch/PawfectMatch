@@ -50,14 +50,7 @@ class Post{
             array_push($error_array , "Please enter numeric value in cost");
         }
 
-        // INSERTIN POST INTO posts DB
-        // if(isset($error_array)){
-        //     echo "null";
-        // } else{
-        //     print_r($error_array);
-        // }
-
-            
+          
 
         $post_query = mysqli_query($this->con , "INSERT INTO posts VALUES (
             '' ,'$userpost_nameofpet','$userpost_breedofpet','$userpost_age','$userpost_location',
@@ -81,5 +74,4 @@ class Post{
 }
 
 
-// echo $userpost_nameofpet;
 ?>

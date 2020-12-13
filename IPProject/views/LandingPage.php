@@ -25,8 +25,6 @@
                 <h2><i class="fas fa-paw"></i> Paw4Paw</h2>     
             </div>
 
-            <!-- SEARCH BAR FOR FUTURE -->
-            <!-- <input id="search" type="text" placeholder="Search"> -->
 
             <ul class="navbar">
                 <li class="active"><a href="#">Home</a></li>
@@ -49,8 +47,6 @@
             <a href="./Authentication/loginandregistration.php" class="btn">Login</a>
             <a href="./Authentication/loginandregistration.php" class="btn">Register</a>
         </div>
-
-
 
     </div>
 </div>

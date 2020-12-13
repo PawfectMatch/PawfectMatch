@@ -12,37 +12,7 @@ class UserPost{
 		$this->UserPost = mysqli_fetch_array($UserPost_details_query);
 	}
 
-	// public function getPetname() {
-	// 	return $this->UserPost['nameofpet'];
-  //   }
-
-  //   public function breedofPet() {
-	// 	return $this->UserPost['breedofpet'];
-  //   }
-
-  //   public function ageofPet() {
-	// 	return $this->UserPost['ageofpet'];
-  //   }
-
-  //   public function locationofPet() {
-	// 	return $this->UserPost['location'];
-  //   }
-
-  //   public function genderofPet() {
-	// 	return $this->UserPost['gender'];
-  //   }
-
-  //   public function costofPet() {
-	// 	return $this->UserPost['costofpet'];
-  //   }
-
-  //   public function ownerofPet() {
-	// 	return $this->UserPost['owner'];
-  //   }
-  //   public function picofPet() {
-	// 	return $this->UserPost['picofpet'];
-  //   }
-    
+   
 }
 
 ?>

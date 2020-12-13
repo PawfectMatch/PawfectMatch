@@ -3,95 +3,70 @@
     include("../../includes/partials/header.php");
     include("../../includes/classes/User.php");
 
+    // QUERIES TO GET USER AND OWNER DETAILS
     $SinglePosts = $con->query("SELECT * from posts where post_id = '12'");
     $data = mysqli_fetch_array($SinglePosts);
     $owner_id = $data['owner_id'];
     $userdata =    $con->query("SELECT * from users where user_id = '$owner_id'");
     $data2 = mysqli_fetch_array($userdata);
+    $user_obj = new User($con , $loggedin_user);
 
+    //  INCLUDING PHP MAILER
+    include_once "../../PHPMailer.php";
 
+    require_once "../../PHPMailer.php";
+    require_once "../../SMTP.php";
+    require_once "../../Exception.php";
+    include_once "../../smtp.php";
 
+//  USE PHPMailer
+    use PHPMailer\PHPMailer\PHPMailer;
+//  Customer Email
+    $Cemail=$data2['email'];
+    $mail = new PHPMailer();
+    //SMTP Settings
 
-    // 
-        include_once "../../PHPMailer.php";
+    $mail->isSMTP();
+    $mail->Host = "smtp.gmail.com";
+    $mail->SMTPAuth = true;
+    $mail->Username = "sgogate.boss@gmail.com";
+    $mail->Password = '98330484772';
+    $mail->Port = 465; //587
+    $mail->SMTPSecure = "ssl"; //tls
 
-        require_once "../../PHPMailer.php";
-        require_once "../../SMTP.php";
-        require_once "../../Exception.php";
-        include_once "../../smtp.php";
-
-        use PHPMailer\PHPMailer\PHPMailer;
-        $Cemail=$data2['email'];
-        $mail = new PHPMailer();
-        //SMTP Settings
-
-
-
-        $mail->isSMTP();
-        $mail->Host = "smtp.gmail.com";
-        $mail->SMTPAuth = true;
-        $mail->Username = "sgogate.boss@gmail.com";
-        $mail->Password = '99677232310';
-        $mail->Port = 465; //587
-        $mail->SMTPSecure = "ssl"; //tls
-
-        if(isset($_POST['contact'])) {
-          $mail->isHTML(true);
-          $mail->setFrom($data2['email']);
-          $mail->addAddress($data2['email']);
-            // echo "USERNAME " . $loggedin_user;
-            // echo "OWNER " . $data2['username'];
-          $mail->Subject =  "PAWFECT MATCH " . "    ||   " .  $loggedin_user . " wants to conatact you" . "    ||   ";
-          
-          $mail->Body = "
-              HELLO ". $data2['username'] . " 
-              
-              
-              " . $loggedin_user . "is intrested in " . $data['nameofpet'] ;
+    // IF BUTTON IS CLICKED
+      if(isset($_POST['contact'])) {
+        $mail->isHTML(true);
+        $mail->setFrom($user_obj->getEmail());
+        $mail->addAddress($user_obj->getEmail());
+          // echo "USERNAME " . $loggedin_user;
+          // echo "OWNER " . $data2['username'];
+        $mail->Subject =  "PAWFECT MATCH " . "    ||   " .  $user_obj->getUsername() . " wants to contact you" . "    ||   ";
         
-          if ($mail->send())
-          {
-              echo '<script id="tyru" language="javascript">';
-              echo 'alert("User is notified !")';
-              echo '</script>';
-          }
-          else
-          {
-              echo '<script id="tyru" language="javascript">';
-              echo 'alert("Sending email failed!")';
-              echo '</script>';
-          }
-      } 
+        $mail_body =  "Hello " .$data2['username']." , 
+        " . $user_obj->getUsername() ." has viewed your profile on Paw4Paw and has shown interest in " . 
+        $data['nameofpet'] . ". <p> Revert back if you're interested and would want to contact 
+        " . $user_obj->getUsername() . "<p> Email : " . $data2['email'];
+        $mail_body = "<p style='text-align:justify'>$mail_body</p>";
+        $mail->Body =  $mail_body;
 
-    // 
-
-  // 
-  // $mail->isHTML(true);
-  // $mail->setFrom("sgogate600@gmail.com");
-  // $mail->addAddress("sgogate600@gmail.com");
-  // $mail->Subject =  "USER WANTS TO CONTACT U";
-  
-  // $mail->Body = "
-  //     HELLO THIS IS PAWFECT MATCH";
-
-  // if ($mail->send())
-  // {
-  //     echo '<script id="tyru" language="javascript">';
-  //     echo 'alert("Doctor is notified about Unverification of his/her account by Email!")';
-  //     echo '</script>';
-  // }
-  // else
-  // {
-  //     echo '<script id="tyru" language="javascript">';
-  //     echo 'alert("Sending email failed!")';
-  //     echo '</script>';
-  // }
-
-
-  // 
+        if ($mail->send())
+        {
+            echo '<script id="tyru" language="javascript">';
+            echo 'alert("User is notified ! Pls Keep Exploring more pets")';
+            echo '</script>';
+        }
+        else
+        {
+            echo '<script id="tyru" language="javascript">';
+            echo 'alert("Sending email failed!")';
+            echo '</script>';
+        }
+    } 
 
 ?>
 
+<!-- STYLE SHEET -->
 <link rel="stylesheet" href="../../Public/Stylesheets/PostBruce.css">
 
 <div class="somespace"></div>
@@ -103,8 +78,6 @@
   <div>
     <form name="contact" action="Bruce.php" method="post">
 
-      <!-- <button value="contact">Contact Owner</button> -->
-      <!-- <input type="submit" name="contact" value="Contact Owner" onclick="contact()" /> -->
       <button type="submit" name="contact" value="contact">Contact User</button>
     </form>
   </div>
@@ -116,10 +89,5 @@
 
 <!-- FOOTER -->
 <?php
-
-
-
-
-
     include("../../includes/partials/footer.php");
 ?>

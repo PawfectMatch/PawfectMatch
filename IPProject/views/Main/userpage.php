@@ -73,17 +73,11 @@
         <p><button class="cardButton" onclick="location.href='index.php'">Read more</button></p>
     </div>
 
-
-
-
     <?php
 
- 
        }      
     ?>
     </div>
-    
-
 
 <!-- FOOTER -->
 <?php

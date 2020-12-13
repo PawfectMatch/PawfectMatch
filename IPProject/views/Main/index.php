@@ -55,54 +55,6 @@
                     ?>
 
 
-
-                    <!-- <div class="card">
-                        <img src="../../Public/Images/Asterixx.jpg" alt="Asterix" style="width:100%">
-                        <h1>Asterix Dcosta</h1>
-                        <p class="CardName">Young, playful and happy Cocker Spaniel</p>
-                        <p>3 years</p>
-
-                        <p><button>Read more</button></p>
-                    </div>
-
-
-                    <div class="card">
-                        <img src="../../Public/Images/BruceKherdekar.jpg" alt="Bruce" style="width:100%">
-                        <h1>Bruce Kherdekar</h1>
-                        <p class="CardName">Friendly, fluffy and fit Labrador Retriever</p>
-                        <p>4 years</p>
-
-                        <p><button>Read more</button></p>
-                    </div>
-
-                    <div class="card">
-                        <img src="../../Public/Images/LeoN.jpg" alt="Leo" style="width:100%">
-                        <h1>Leo Nautiyal</h1>
-                        <p class="CardName">A sporty happy Labrador Retriever</p>
-                        <p>3 years</p>
-
-                        <p><button>Read more</button></p>
-                    </div>
-
-                    <div class="card">
-                        <img src="../../Public/Images/tuffy.jpg" alt="Tuffy" style="width:100%">
-                        <h1>Tuffy</h1>
-                        <p class="CardName">A beautiful mixture of Labrador and Husky</p>
-                        <p>2 years</p>
-
-                        <p><button>Read more</button></p>
-                    </div> 
-                    
-                    
-                    <div class="card">
-                        <img src="../../Public/Images/Hachiko.jpg" alt="Hachiko" style="width:100%">
-                        <h1>Hachiko</h1>
-                        <p class="CardName">A very loyal and friendly Hachiko </p>
-                        <p>5 years</p>
-
-                        <p><button>Read more</button></p>
-                    </div> -->
-
                 </td>
 	<!-- ADMIN PANEL -->
                 <td class="AdminPanel">
