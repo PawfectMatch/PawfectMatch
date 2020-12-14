@@ -37,6 +37,8 @@
 				<input name='log_email' type="text" class="input-field" placeholder="email" value = "<?php
 					if(isset($_SESSION['log_email'])){
 						echo $_SESSION['log_email'];
+
+						
 					}
 				?>" required>
 				<input name='log_password' type="password" class="input-field" placeholder="Enter Password" required>

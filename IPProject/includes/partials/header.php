@@ -58,9 +58,9 @@
 
         <ul class="navbar">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Dogs</a></li>
+            <li><a href="../../views/Main/index.php">Dogs</a></li>
             <li><a href="#">About us</a></li>
             <li><a href="#">Contact us</a></li>
-            <li><a href="./logout.php">Log Out</a></li>
+            <li><a href="../../views/LandingPage.php">Log Out</a></li>
         </ul>
     </div>

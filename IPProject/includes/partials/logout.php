@@ -2,9 +2,9 @@
 <?php
 
 
-session_start();
+echo "Working";
 session_destroy();
-header('Location: http://localhost/PawfectMatch/IPProject/views/Authentication/loginandregistration.php');
+// header('Location: http://localhost/PawfectMatch/IPProject/views/Authentication/loginandregistration.php');
 exit;
 
 ?>

@@ -16,30 +16,30 @@ class AllPost{
 		return $this->AllPost['nameofpet'];
     }
 
-    public function breedofPet() {
+  public function breedofPet() {
 		return $this->AllPost['breedofpet'];
     }
 
-    public function ageofPet() {
+  public function ageofPet() {
 		return $this->AllPost['ageofpet'];
     }
 
-    public function locationofPet() {
+  public function locationofPet() {
 		return $this->AllPost['location'];
     }
 
-    public function genderofPet() {
+  public function genderofPet() {
 		return $this->AllPost['gender'];
     }
 
-    public function costofPet() {
+  public function costofPet() {
 		return $this->AllPost['costofpet'];
     }
 
-    public function ownerofPet() {
+  public function ownerofPet() {
 		return $this->AllPost['owner'];
     }
-    public function picofPet() {
+  public function picofPet() {
 		return $this->AllPost['picofpet'];
     }
     
